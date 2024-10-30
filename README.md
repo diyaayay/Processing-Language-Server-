@@ -8,6 +8,9 @@
 
 This project is an LSP extension that enables writing and running Processing sketches on Windows. It involves running Processing in headless mode along with a client-server JSON-RPC connection for LSP features. Both running sketches and LSP features have been tested on Windows, while LSP features have also been tested on Linux.
 
+>[!NOTE]  
+>The full feature set of this LSP extension is currently compatible only with **Windows**. For more information, go to the [Limitations](#limitations) section. 
+
 ## Run the extension in Windows 
 - Download and install the dependencies:
 	- Ensure `python >=3` is installed on your machine,
@@ -69,13 +72,22 @@ npm install
 npm run watch
 ```
 
-Note: This project is under development. The default development branch is `Development`. To test, create a sketch directory. The sketch must exist in a directory with the same name as the sketch file itself (e.g., Sketch101/Sketch101.pde).
+This project is currently under development. The default development branch is `Development`. To test, create a sketch directory. The sketch must exist in a directory with the same name as the sketch file itself (e.g., Sketch101/Sketch101.pde).
 
-Note: If you run into any errors while installing, make sure you have `python >=3` installed on your windows/linux machine.
+<br>
+
+> [!NOTE]
+> - If you run into any errors while installing, make sure you have `python >=3` installed on your machine,
 [Download Python](https://www.python.org/ftp/python/3.13.0/python-3.13.0-amd64.exe).
-
-Note: If you run into any errors while installing, make sure you have `openJdk 7` installed for the node modules dependency 
+> - If you run into any errors while installing, make sure you have `openJdk 7` installed for the node modules dependency 
 `npm i java`. Refer to the following link to download it: [Download openJDK](https://github.com/alexkasko/openjdk-unofficial-builds#openjdk-unofficial-installers-for-windows-linux-and-mac-os-x), and it should be added to your system's environment variables.
+
+## Limitations
+
+- The LSP features work cross-platform, but sketch execution is currently limited to **Windows** due to the specific [symlink](https://doc.rust-lang.org/std/os/unix/fs/fn.symlink.html) setup for the Windows distribution.
+- The large size of the extension is due to custom dependencies downloaded via the `dependency.bat` script. The [dependency.zip](https://github.com/diyaayay/processing-language-server-extension/releases/download/v1.2/dependency.zip) contains the Processing distribution for Windows, which is extracted into `jre/deps`.
+- This limitation is due to the extension's JSON-RPC architecture, which enables client-server communication for IntelliSense features. A layered structure was established to connect the protocol, server, client, extension, and Processing distribution, using symlinks to package Processing and execute sketches from the sketch runner.
+- Future development could use similar setups for other platforms to expand compatibility.
 
 ## Contributors
 
