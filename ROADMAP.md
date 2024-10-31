@@ -16,9 +16,8 @@ as possible.
   - [x] Lexer & Parser (ANTLR)
   - [X] Get the sketch
   - [X] Run the sketch
-  - [ ] No known Bugs
 
-- [ ] LSP Extension
+- [x] LSP Extension
   - [X] Setup Server
   - [X] Setup Client
   - [x] Grammar files
@@ -29,16 +28,15 @@ as possible.
     - [x] Examples
   - [x] Hover
     - [x] Keyword documentation hover
-  - [ ] Diagnostics
+  - [x] Diagnostics
     - [x] Sketch Validation
   - [x] Go-to References
   - [x] Configuration
     - [x] Watch sketch file
-  - [ ] No known Bugs
 
-- [ ] Documentation
+- [x] Documentation
 
-- [ ] Publish as a VSCode Extension
+- [x] Publish as a VSCode Extension
  
 
 
